@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class RecipesManagement extends Recipes {
 
-	public RecipesManagement(String name, List<String> ingredients, String instructions) {
-		super(name, ingredients, instructions);
+	public RecipesManagement(String name, List<String> ingredients, String instructions,String cuisine, String mealType) {
+		super(name, ingredients, instructions, cuisine, mealType);
 		
 	}
 
@@ -31,6 +31,9 @@ public class RecipesManagement extends Recipes {
 
         System.out.print("Enter cooking instructions: ");
         String instructions = scanner.nextLine();
+        
+        System.out.print("Enter Meal Type (e.g., Breakfast, Lunch, Dinner): ");
+        String mealType = scanner.nextLine();
 
         recipes.add(new RecipesManagement (name, ingredients, instructions));
         System.out.println("Recipe added successfully!");
@@ -47,6 +50,34 @@ public class RecipesManagement extends Recipes {
             }
         }
     }
+    
+    public static void searchByCuisine() {
+        System.out.print("Enter Cuisine to Search: ");
+        Scanner scanner = new Scanner(System.in);
+        String selectedCuisine = scanner.nextLine();
+
+        System.out.println("\n🔎 Recipes under " + selectedCuisine + " Cuisine:");
+        for (RecipesManagement recipe : recipes) {
+            if (recipe.getCuisine().equalsIgnoreCase(selectedCuisine)) {
+                recipe.displayRecipe();
+            }
+        }
+    }
+
+    public static void searchByMealType() {
+        System.out.print("Enter Meal Type to Search: ");
+        Scanner scanner = new Scanner(System.in);
+        String selectedMealType = scanner.nextLine();
+
+        System.out.println("\n🔎 Recipes under " + selectedMealType + " Meal Type:");
+        for (RecipesManagement recipe : recipes) {
+            if (recipe.getMealType().equalsIgnoreCase(selectedMealType)) {
+                recipe.displayRecipe();
+            }
+        }
+    }
+    
+    
     
     public void editRecipe() {
     Scanner scanner = new Scanner(System.in);
