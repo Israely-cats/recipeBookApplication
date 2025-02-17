@@ -32,10 +32,20 @@ public class RecipesManagement extends Recipes {
         System.out.print("Enter cooking instructions: ");
         String instructions = scanner.nextLine();
         
+        System.out.print("Enter Cuisine (e.g., Italian, Mexican): ");
+        String cuisine = scanner.nextLine();
+        
         System.out.print("Enter Meal Type (e.g., Breakfast, Lunch, Dinner): ");
         String mealType = scanner.nextLine();
+        
+        System.out.print("Enter Difficulty Level (Easy, Medium, Hard): ");
+        String difficultyLevel = scanner.nextLine();
+        
+        System.out.print("Enter Cooking Time (in minutes): ");
+        int cookingTime = scanner.nextInt();
+        scanner.nextLine();
 
-        recipes.add(new RecipesManagement (name, ingredients, instructions));
+        recipes.add(new RecipesManagement (name, ingredients, instructions, cuisine , mealType));
         System.out.println("Recipe added successfully!");
     }
 
@@ -69,7 +79,7 @@ public class RecipesManagement extends Recipes {
         Scanner scanner = new Scanner(System.in);
         String selectedMealType = scanner.nextLine();
 
-        System.out.println("\n🔎 Recipes under " + selectedMealType + " Meal Type:");
+        System.out.println("\n Recipes under " + selectedMealType + " Meal Type:");
         for (RecipesManagement recipe : recipes) {
             if (recipe.getMealType().equalsIgnoreCase(selectedMealType)) {
                 recipe.displayRecipe();
@@ -77,8 +87,64 @@ public class RecipesManagement extends Recipes {
         }
     }
     
+    public static void searchByCookingTime() {
+        System.out.print("Enter Maximum Cooking Time (in minutes): ");
+        Scanner scanner = new Scanner(System.in);
+        int maxTime = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("\n Recipes under " + maxTime + " minutes:");
+        for (RecipesManagement recipe : recipes) {
+            if (recipe.getCookingTime() <= maxTime) {
+                recipe.displayRecipe();
+            }
+        }
+    }
     
+    public static void searchByIngredients() {
+        System.out.print("Enter ingredient to search for: ");
+        Scanner scanner = new Scanner(System.in);
+        String ingredient = scanner.nextLine().toLowerCase();
+
+        System.out.println("\n Recipes containing " + ingredient + ":");
+        for (RecipesManagement recipe : recipes) {
+            for (String ing : recipe.getIngredients()) {
+                if (ing.toLowerCase().contains(ingredient)) {
+                    recipe.displayRecipe();
+                    break;
+                }
+            }
+        }
+    }
     
+    public static void filterByMealType() {
+        System.out.print("Enter Meal Type to filter (e.g., Breakfast, Lunch, Dinner): ");
+        Scanner scanner = new Scanner(System.in);
+        String selectedMealType = scanner.nextLine();
+
+        System.out.println("\n Recipes under " + selectedMealType + " Meal Type:");
+        for (RecipesManagement recipe : recipes) {
+            if (recipe.getMealType().equalsIgnoreCase(selectedMealType)) {
+                recipe.displayRecipe();
+            }
+        }
+    }
+
+
+    public static void filterByDifficulty() {
+        System.out.print("Enter Difficulty Level to filter (Easy, Medium, Hard): ");
+        Scanner scanner = new Scanner(System.in);
+        String selectedDifficulty = scanner.nextLine();
+
+        System.out.println("\n🔎 Recipes with " + selectedDifficulty + " Difficulty:");
+        for (RecipesManagement recipe : recipes) {
+            if (recipe.getDifficultyLevel().equalsIgnoreCase(selectedDifficulty)) {
+                recipe.displayRecipe();
+            }
+        }
+    }
+    
+   
     public void editRecipe() {
     Scanner scanner = new Scanner(System.in);
     displayRecipes();

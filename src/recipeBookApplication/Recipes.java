@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class Recipes {
 
 	private String name;
-    private List<String> ingredients;
+	private List<String> ingredients;
     private String instructions;
     private String cuisine;
     private String mealType;
+    private String difficultyLevel;
+    private int cookingTime;
     
     public Recipes (String name, List<String>ingredients, String instructions,String cuisine, String mealType) {
         this.name = name;
@@ -18,9 +20,27 @@ public class Recipes {
         this.instructions = instructions;
         this.cuisine = cuisine;
         this.mealType = mealType;
+        this.difficultyLevel = difficultyLevel;
+        this.cookingTime = cookingTime;
     }
     
-    public String getName() {
+    public int getCookingTime() {
+		return cookingTime;
+	}
+
+	public String getDifficultyLevel() {
+		return difficultyLevel;
+	}
+
+	public void setDifficultyLevel(String difficultyLevel) {
+		this.difficultyLevel = difficultyLevel;
+	}
+
+	public void setCookingTime(int cookingTime) {
+		this.cookingTime = cookingTime;
+	}
+
+	public String getName() {
 		return name;
 	}
 
@@ -62,7 +82,8 @@ public class Recipes {
 
 	public void displayRecipe() {
         System.out.println("Recipe Name: " + name);
-        System.out.println("Cuisine: " + cuisine + " | Meal Type: " + mealType);
+        System.out.println("Cuisine: " + cuisine + " | Meal Type: " + mealType + " | Difficulty: " + difficultyLevel);
+        System.out.println("Cooking Time: " + cookingTime + " minutes");
         System.out.println("Ingredients: " + ingredients);
         System.out.println("Instructions: " + instructions);
     }
