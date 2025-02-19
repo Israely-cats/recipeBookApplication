@@ -143,72 +143,82 @@ public class RecipesManagement extends Recipes {
             }
         }
     }
-    
-   
-    public void editRecipe() {  // Method to Edit Recipe
-    Scanner scanner = new Scanner(System.in);
-    displayRecipes();
-    if (recipes.isEmpty()) 
-    	return;
 
-    System.out.print("Enter the recipe number to edit: ");
-    int recipeIndex = scanner.nextInt() - 1;
-    scanner.nextLine(); 
+    public void editRecipe() { // Method to Edit Recipe
+        Scanner scanner = new Scanner(System.in);
+        displayRecipes();
+        if (recipes.isEmpty())
+            return;
 
-    if (recipeIndex >= 0 && recipeIndex < recipes.size()) {
-    RecipesManagement recipe = recipes.get(recipeIndex);
+        System.out.print("Enter the recipe number to edit: ");
+        int recipeIndex = scanner.nextInt() - 1;
+        scanner.nextLine();
 
-    System.out.println("Editing Recipe:" + getName());
-    System.out.print("Enter new name: ");
-    String newName = scanner.nextLine();
-    if (!newName.isEmpty()) {
-        recipe.setName(newName);
-  
-   System.out.print("Do you want to edit ingredients? (yes/no): ");
-   if (scanner.nextLine().equalsIgnoreCase("yes")) {
-   List<String> newIngredients = new ArrayList<>();
-   System.out.print("Enter number of ingredients: ");
-   int numIngredients = scanner.nextInt();
-   scanner.nextLine();
+        if (recipeIndex >= 0 && recipeIndex < recipes.size()) {
+            RecipesManagement recipe = recipes.get(recipeIndex);
 
-   for (int i = 0; i < numIngredients; i++) {
-   System.out.print("Enter ingredient " + (i + 1) + ": ");
-   newIngredients.add(scanner.nextLine());
-   }
-   recipe.setIngredients(newIngredients);
-   }
+            System.out.println("Editing Recipe:" + getName());
+            System.out.print("Enter new name: ");
+            String newName = scanner.nextLine();
+            if (!newName.isEmpty()) {
+                recipe.setName(newName);
 
-   System.out.print("Enter new instructions (or press Enter to keep the same): ");
-   String newInstructions = scanner.nextLine();
-   if (!newInstructions.isEmpty()) {
-   recipe.setInstructions(newInstructions);
-   }
+                System.out.print("Do you want to edit ingredients? (yes/no): ");
+                if (scanner.nextLine().equalsIgnoreCase("yes")) {
+                    List<String> newIngredients = new ArrayList<>();
+                    System.out.print("Enter number of ingredients: ");
+                    int numIngredients = scanner.nextInt();
+                    scanner.nextLine();
 
-   System.out.println("Recipe updated successfully!");
-   } else {
-   System.out.println("Invalid recipe number.");
-   }
+                    for (int i = 0; i < numIngredients; i++) {
+                        System.out.print("Enter ingredient " + (i + 1) + ": ");
+                        newIngredients.add(scanner.nextLine());
+                    }
+                    recipe.setIngredients(newIngredients);
+                }
+
+                System.out.print("Enter new instructions (or press Enter to keep the same): ");
+                String newInstructions = scanner.nextLine();
+                if (!newInstructions.isEmpty()) {
+                    recipe.setInstructions(newInstructions);
+                }
+
+                System.out.println("Recipe updated successfully!");
+            } else {
+                System.out.println("Invalid recipe number.");
+            }
+        }
+        System.out.println("Press enter to continue...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    }
-    
-    
-    public void deleteRecipe() {   // Method to Delete Recipe
-    Scanner scanner = new Scanner(System.in);
-    displayRecipes();
 
-    if (recipes.isEmpty())
-    	return;
+    public void deleteRecipe() { // Method to Delete Recipe
+        Scanner scanner = new Scanner(System.in);
+        displayRecipes();
 
-    System.out.print("Enter the recipe number to delete: ");
-    int recipeIndex = scanner.nextInt() - 1;
-    scanner.nextLine();
+        if (recipes.isEmpty())
+            return;
 
-    if (recipeIndex >= 0 && recipeIndex < recipes.size()) {
-    System.out.println("Deleting Recipe: " + recipes.get(recipeIndex).getName());
-    recipes.remove(recipeIndex);
-    System.out.println("Recipe deleted successfully!");
-    } else {
-    System.out.println("Invalid recipe number.");
+        System.out.print("Enter the recipe number to delete: ");
+        int recipeIndex = scanner.nextInt() - 1;
+        scanner.nextLine();
+
+        if (recipeIndex >= 0 && recipeIndex < recipes.size()) {
+            System.out.println("Deleting Recipe: " + recipes.get(recipeIndex).getName());
+            recipes.remove(recipeIndex);
+            System.out.println("Recipe deleted successfully!");
+        } else {
+            System.out.println("Invalid recipe number.");
+        }
+        System.out.println("Press enter to continue...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     
 }

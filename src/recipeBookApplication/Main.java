@@ -115,7 +115,11 @@ public class Main {
                     case 1:
                         recipeManager.displayRecipes();
                         System.out.println("Press enter to continue...");
-                        System.in.read();
+                        try {
+                            System.in.read();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         break;
                     case 2:
                         RecipesManagement.searchByCuisine();

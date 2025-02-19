@@ -87,5 +87,4 @@ public class Recipes {
         System.out.println("Ingredients: " + ingredients);
         System.out.println("Instructions: " + instructions);
     }
-    
 }
