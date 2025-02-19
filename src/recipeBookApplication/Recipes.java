@@ -14,7 +14,7 @@ public class Recipes {
     private String difficultyLevel;
     private int cookingTime;
     
-    public Recipes (String name, List<String>ingredients, String instructions,String cuisine, String mealType) {
+    public Recipes (String name, List<String>ingredients, String instructions,String cuisine, String mealType,String difficultyLevel, int cookingTime) {
         this.name = name;
         this.ingredients = ingredients;
         this.instructions = instructions;

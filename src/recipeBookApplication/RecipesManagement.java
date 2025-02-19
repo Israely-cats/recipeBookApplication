@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class RecipesManagement extends Recipes {
 
-	public RecipesManagement(String name, List<String> ingredients, String instructions,String cuisine, String mealType) {
-		super(name, ingredients, instructions, cuisine, mealType);
+	public RecipesManagement(String name, List<String> ingredients, String instructions,String cuisine, String mealType,String difficultyLevel, int cookingTime) {
+		super(name, ingredients, instructions, cuisine, mealType,difficultyLevel,cookingTime);
 		
 	}
 
 	public static List<RecipesManagement> recipes = new ArrayList<>();
 
-    public void addRecipe() {
+    public void addRecipe() {    // Method to Add Recipe
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter recipe name: ");
@@ -45,13 +45,13 @@ public class RecipesManagement extends Recipes {
         int cookingTime = scanner.nextInt();
         scanner.nextLine();
 
-        recipes.add(new RecipesManagement (name, ingredients, instructions, cuisine , mealType));
+        recipes.add(new RecipesManagement (name, ingredients, instructions,difficultyLevel,mealType, cuisine , cookingTime));
         System.out.println("Recipe added successfully!");
     }
 
     
 
-    public void displayRecipes() {
+    public void displayRecipes() { // Method to Display Recipes
         if (recipes.isEmpty()) {
             System.out.println("No recipes available.");
         } else {
@@ -61,7 +61,7 @@ public class RecipesManagement extends Recipes {
         }
     }
     
-    public static void searchByCuisine() {
+    public static void searchByCuisine() {   // Method to Search by Cuisine
         System.out.print("Enter Cuisine to Search: ");
         Scanner scanner = new Scanner(System.in);
         String selectedCuisine = scanner.nextLine();
@@ -74,7 +74,7 @@ public class RecipesManagement extends Recipes {
         }
     }
 
-    public static void searchByMealType() {
+    public static void searchByMealType() {  // Method to Search by Meal Type
         System.out.print("Enter Meal Type to Search: ");
         Scanner scanner = new Scanner(System.in);
         String selectedMealType = scanner.nextLine();
@@ -87,7 +87,7 @@ public class RecipesManagement extends Recipes {
         }
     }
     
-    public static void searchByCookingTime() {
+    public static void searchByCookingTime() { // Method to Search by cooking time
         System.out.print("Enter Maximum Cooking Time (in minutes): ");
         Scanner scanner = new Scanner(System.in);
         int maxTime = scanner.nextInt();
@@ -101,7 +101,7 @@ public class RecipesManagement extends Recipes {
         }
     }
     
-    public static void searchByIngredients() {
+    public static void searchByIngredients() {  // Method to Search by ingredients 
         System.out.print("Enter ingredient to search for: ");
         Scanner scanner = new Scanner(System.in);
         String ingredient = scanner.nextLine().toLowerCase();
@@ -117,7 +117,7 @@ public class RecipesManagement extends Recipes {
         }
     }
     
-    public static void filterByMealType() {
+    public static void filterByMealType() {  // Method to Filter by Meal type
         System.out.print("Enter Meal Type to filter (e.g., Breakfast, Lunch, Dinner): ");
         Scanner scanner = new Scanner(System.in);
         String selectedMealType = scanner.nextLine();
@@ -131,12 +131,12 @@ public class RecipesManagement extends Recipes {
     }
 
 
-    public static void filterByDifficulty() {
+    public static void filterByDifficulty() {  // Method to Filter by difficulty
         System.out.print("Enter Difficulty Level to filter (Easy, Medium, Hard): ");
         Scanner scanner = new Scanner(System.in);
         String selectedDifficulty = scanner.nextLine();
 
-        System.out.println("\n🔎 Recipes with " + selectedDifficulty + " Difficulty:");
+        System.out.println("\n Recipes with " + selectedDifficulty + " Difficulty:");
         for (RecipesManagement recipe : recipes) {
             if (recipe.getDifficultyLevel().equalsIgnoreCase(selectedDifficulty)) {
                 recipe.displayRecipe();
@@ -145,7 +145,7 @@ public class RecipesManagement extends Recipes {
     }
     
    
-    public void editRecipe() {
+    public void editRecipe() {  // Method to Edit Recipe
     Scanner scanner = new Scanner(System.in);
     displayRecipes();
     if (recipes.isEmpty()) 
@@ -192,7 +192,7 @@ public class RecipesManagement extends Recipes {
     }
     
     
-    public void deleteRecipe() {
+    public void deleteRecipe() {   // Method to Delete Recipe
     Scanner scanner = new Scanner(System.in);
     displayRecipes();
 
