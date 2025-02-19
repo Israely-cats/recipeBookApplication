@@ -7,3 +7,6 @@ tmp/
 *.el
 *.prefs
 *.classpath
+*.jar
+.settings/
+bin/
