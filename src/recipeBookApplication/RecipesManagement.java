@@ -78,6 +78,12 @@ public class RecipesManagement extends Recipes implements Serializable {
                 recipe.displayRecipe();
             }
         }
+        System.out.println("Press enter to continue...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void searchByMealType() {  // Method to Search by Meal Type
