@@ -75,7 +75,7 @@ class Menu {
         }
     }
 
-    int runLoop() {
+    int runMenu() {
         try {
             // Enable raw mode
             enableRawMode();
@@ -140,7 +140,7 @@ public class Main {
                 menu.options.add("Exit");
                 // System.out.print("👉 Enter your choice: ");
 
-                int choice = menu.runLoop();
+                int choice = menu.runMenu();
                 // Ensure valid integer input
                 // int choice = scanner.nextInt();
                 // scanner.nextLine(); // Consume newline
