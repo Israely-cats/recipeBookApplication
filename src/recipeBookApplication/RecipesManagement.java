@@ -86,7 +86,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         }
     }
 
-    public static void searchByMealType() {  // Method to Search by Meal Type
+    public static void searchByMealType() { // Method to Search by Meal Type
         System.out.print("Enter Meal Type to Search: ");
         Scanner scanner = new Scanner(System.in);
         String selectedMealType = scanner.nextLine();
@@ -98,7 +98,7 @@ public class RecipesManagement extends Recipes implements Serializable {
             }
         }
     }
-    
+
     public static void searchByCookingTime() { // Method to Search by cooking time
         System.out.print("Enter Maximum Cooking Time (in minutes): ");
         Scanner scanner = new Scanner(System.in);
@@ -112,8 +112,8 @@ public class RecipesManagement extends Recipes implements Serializable {
             }
         }
     }
-    
-    public static void searchByIngredients() {  // Method to Search by ingredients 
+
+    public static void searchByIngredients() { // Method to Search by ingredients
         System.out.print("Enter ingredient to search for: ");
         Scanner scanner = new Scanner(System.in);
         String ingredient = scanner.nextLine().toLowerCase();
@@ -128,8 +128,8 @@ public class RecipesManagement extends Recipes implements Serializable {
             }
         }
     }
-    
-    public static void filterByMealType() {  // Method to Filter by Meal type
+
+    public static void filterByMealType() { // Method to Filter by Meal type
         System.out.print("Enter Meal Type to filter (e.g., Breakfast, Lunch, Dinner): ");
         Scanner scanner = new Scanner(System.in);
         String selectedMealType = scanner.nextLine();
@@ -142,8 +142,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         }
     }
 
-
-    public static void filterByDifficulty() {  // Method to Filter by difficulty
+    public static void filterByDifficulty() { // Method to Filter by difficulty
         System.out.print("Enter Difficulty Level to filter (Easy, Medium, Hard): ");
         Scanner scanner = new Scanner(System.in);
         String selectedDifficulty = scanner.nextLine();
@@ -232,7 +231,5 @@ public class RecipesManagement extends Recipes implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    
-}
     }
-	
+}
