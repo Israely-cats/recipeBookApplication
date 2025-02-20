@@ -111,6 +111,12 @@ public class RecipesManagement extends Recipes implements Serializable {
                 recipe.displayRecipe();
             }
         }
+        System.out.println("Press enter to continue...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void searchByIngredients() { // Method to Search by ingredients
@@ -127,6 +133,12 @@ public class RecipesManagement extends Recipes implements Serializable {
                 }
             }
         }
+        System.out.println("Press enter to continue...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void filterByMealType() { // Method to Filter by Meal type
@@ -140,6 +152,12 @@ public class RecipesManagement extends Recipes implements Serializable {
                 recipe.displayRecipe();
             }
         }
+        System.out.println("Press enter to continue...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void filterByDifficulty() { // Method to Filter by difficulty
@@ -152,6 +170,12 @@ public class RecipesManagement extends Recipes implements Serializable {
             if (recipe.getDifficultyLevel().equalsIgnoreCase(selectedDifficulty)) {
                 recipe.displayRecipe();
             }
+        }
+        System.out.println("Press enter to continue...");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
