@@ -200,8 +200,6 @@ public class Main {
                         scanner.close();
                         System.exit(0);
                         break;
-                    default:
-                        System.out.println(" Invalid choice! Please enter a number between 0 and 10.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println(" Error: Please enter a valid number!");
