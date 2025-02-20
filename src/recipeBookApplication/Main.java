@@ -122,24 +122,32 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         RecipesManagement recipeManager = new RecipesManagement("", null, "", "", "", null, 0);
+        FileOutputStream file;
 
+        Menu menu = new Menu();
+        menu.options.add("Add Recipe");
+        menu.options.add("View Recipes");
+        menu.options.add("Search by Cuisine");
+        menu.options.add("Search by Meal Type");
+        menu.options.add("Search by Ingredients");
+        menu.options.add("Search by Cooking Time");
+        menu.options.add("Filter by Meal Type");
+        menu.options.add("Filter by Difficulty Level");
+        menu.options.add("Edit Recipe");
+        menu.options.add("Delete Recipe");
+        menu.options.add("Exit");
+
+        try {
+            int ret;
+            if ((ret = Runtime.getRuntime().exec("[ -e " + FILENAME + " ]").exitValue()) == 0)
+                RoachUtil.loadData(FILENAME);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // System.exit(111);
         while (true) {
             try {
-                Menu menu = new Menu();
-                // menu.options.add("\n Recipe Book Application");
-                menu.options.add("Add Recipe");
-                menu.options.add("View Recipes");
-                menu.options.add("Search by Cuisine");
-                menu.options.add("Search by Meal Type");
-                menu.options.add("Search by Ingredients");
-                menu.options.add("Search by Cooking Time");
-                menu.options.add("Filter by Meal Type");
-                menu.options.add("Filter by Difficulty Level");
-                menu.options.add("Edit Recipe");
-                menu.options.add("Delete Recipe");
-                menu.options.add("Exit");
-                // System.out.print("👉 Enter your choice: ");
-
                 int choice = menu.runMenu();
                 // Ensure valid integer input
                 // int choice = scanner.nextInt();
