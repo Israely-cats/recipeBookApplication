@@ -8,5 +8,8 @@ tmp/
 *.prefs
 *.classpath
 *.jar
+.datadump
+pom.xml
 .settings/
+target/
 bin/
