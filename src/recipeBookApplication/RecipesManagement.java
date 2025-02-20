@@ -28,7 +28,7 @@ public class RecipesManagement extends Recipes implements Serializable {
 
         System.out.print("Enter number of ingredients: ");
         int numIngredients = scanner.nextInt();
-        scanner.nextLine(); 
+        scanner.nextLine();
 
         List<String> ingredients = new ArrayList<>();
         for (int i = 0; i < numIngredients; i++) {
@@ -38,21 +38,22 @@ public class RecipesManagement extends Recipes implements Serializable {
 
         System.out.print("Enter cooking instructions: ");
         String instructions = scanner.nextLine();
-        
+
         System.out.print("Enter Cuisine (e.g., Italian, Mexican): ");
         String cuisine = scanner.nextLine();
-        
+
         System.out.print("Enter Meal Type (e.g., Breakfast, Lunch, Dinner): ");
         String mealType = scanner.nextLine();
-        
+
         System.out.print("Enter Difficulty Level (Easy, Medium, Hard): ");
         String difficultyLevel = scanner.nextLine();
-        
+
         System.out.print("Enter Cooking Time (in minutes): ");
         int cookingTime = scanner.nextInt();
         scanner.nextLine();
 
-        recipes.add(new RecipesManagement (name, ingredients, instructions,difficultyLevel,mealType, cuisine , cookingTime));
+        recipes.add(new RecipesManagement(name, ingredients, instructions, difficultyLevel, mealType, cuisine,
+                cookingTime));
         System.out.println("Recipe added successfully!");
     }
 
