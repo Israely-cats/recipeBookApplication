@@ -4,15 +4,15 @@
 # @file
 # @version 0.1
 
+FILES += src/recipeBookApplication/Recipes.java
+FILES += src/recipeBookApplication/RecipesManagement.java
+FILES += src/recipeBookApplication/Main.java
 
-run: all
-	java src/recipeBookApplication/Main.java
+run: build
+	cd src && java recipeBookApplication/Main
 
-all: GNUmakefile
-	make -j24 bin/recipeBookApplication/*.class
-
-src/recipeBookApplication/%.class: src/recipeBookApplication/%.java GNUmakefile
-	javac $<
+build:
+	javac $(FILES)
 
 # bin/recipeBookApplication/RecipesManagement.class: bin/recipeBookApplication/Recipes.class src/recipeBookApplication/RecipesManagement.java makefile
 # 	javac $@
