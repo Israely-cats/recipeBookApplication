@@ -119,6 +119,8 @@ class Menu {
 }
 
 public class Main {
+    static final String FILENAME = ".datadump";
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         RecipesManagement recipeManager = new RecipesManagement("", null, "", "", "", null, 0);
@@ -156,6 +158,7 @@ public class Main {
                 switch (choice) {
                     case 0:
                         recipeManager.addRecipe();
+                        RoachUtil.dumpData(FILENAME);
                         break;
                     case 1:
                         recipeManager.displayRecipes();
@@ -186,9 +189,11 @@ public class Main {
                         break;
                     case 8:
                         recipeManager.editRecipe();
+                        RoachUtil.dumpData(FILENAME);
                         break;
                     case 9:
                         recipeManager.deleteRecipe();
+                        RoachUtil.dumpData(FILENAME);
                         break;
                     case 10:
                         System.out.println("🚀 Exiting Recipe Book Application. Goodbye!");
