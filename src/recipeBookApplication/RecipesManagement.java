@@ -1,19 +1,26 @@
 package recipeBookApplication;
 
+import java.io.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import recipeBookApplication.*;
 
-public class RecipesManagement extends Recipes {
+public class RecipesManagement extends Recipes implements Serializable {
+    RecipesManagement() {
+        super();
+    }
 
-	public RecipesManagement(String name, List<String> ingredients, String instructions,String cuisine, String mealType,String difficultyLevel, int cookingTime) {
-		super(name, ingredients, instructions, cuisine, mealType,difficultyLevel,cookingTime);
-		
-	}
+    public RecipesManagement(String name, List<String> ingredients, String instructions, String cuisine,
+            String mealType, String difficultyLevel, int cookingTime) {
+        super(name, ingredients, instructions, cuisine, mealType, difficultyLevel, cookingTime);
 
-	public static List<RecipesManagement> recipes = new ArrayList<>();
+    }
 
-    public void addRecipe() {    // Method to Add Recipe
+    public static List<RecipesManagement> recipes = new ArrayList<>();
+
+    public void addRecipe() { // Method to Add Recipe
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter recipe name: ");
