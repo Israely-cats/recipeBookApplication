@@ -162,7 +162,7 @@ public class Main {
                         break;
                     case 1:
                         recipeManager.displayRecipes();
-                        System.out.println("Press enter to continue...");
+                        System.out.printf("Press enter to continue...\n\r");
                         try {
                             System.in.read();
                         } catch (IOException e) {
