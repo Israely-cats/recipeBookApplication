@@ -1,10 +1,13 @@
 package recipeBookApplication;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.Serializable;
+import recipeBookApplication.*;
 
-public class Recipes {
+public class Recipes implements Serializable {
 
     private String name;
     private List<String> ingredients;
@@ -13,6 +16,11 @@ public class Recipes {
     private String mealType;
     private String difficultyLevel;
     private int cookingTime;
+
+    Recipes() {
+        return;
+    }
+
     public Recipes(String name, List<String> ingredients, String instructions, String cuisine, String mealType,
             String difficultyLevel, int cookingTime) {
         this.name = name;
