@@ -57,19 +57,17 @@ public class RecipesManagement extends Recipes implements Serializable {
         System.out.println("Recipe added successfully!");
     }
 
-    
-
     public void displayRecipes() { // Method to Display Recipes
         if (recipes.isEmpty()) {
-            System.out.println("No recipes available.");
+            System.out.printf("No recipes available.\n\r");
         } else {
             for (RecipesManagement recipe : recipes) {
                 recipe.displayRecipe();
             }
         }
     }
-    
-    public static void searchByCuisine() {   // Method to Search by Cuisine
+
+    public static void searchByCuisine() { // Method to Search by Cuisine
         System.out.print("Enter Cuisine to Search: ");
         Scanner scanner = new Scanner(System.in);
         String selectedCuisine = scanner.nextLine();
