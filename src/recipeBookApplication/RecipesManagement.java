@@ -72,7 +72,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         Scanner scanner = new Scanner(System.in);
         String selectedCuisine = scanner.nextLine();
 
-        System.out.println("\n🔎 Recipes under " + selectedCuisine + " Cuisine:");
+        System.out.println("\n\r🔎 Recipes under " + selectedCuisine + " Cuisine:");
         for (RecipesManagement recipe : recipes) {
             if (recipe.getCuisine().equalsIgnoreCase(selectedCuisine)) {
                 recipe.displayRecipe();
