@@ -91,7 +91,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         Scanner scanner = new Scanner(System.in);
         String selectedMealType = scanner.nextLine();
 
-        System.out.println("\n Recipes under " + selectedMealType + " Meal Type:");
+        System.out.println("\n\r🔎 Recipes under " + selectedMealType + " Meal Type:");
         for (RecipesManagement recipe : recipes) {
             if (recipe.getMealType().equalsIgnoreCase(selectedMealType)) {
                 recipe.displayRecipe();
@@ -105,7 +105,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         int maxTime = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("\n Recipes under " + maxTime + " minutes:");
+        System.out.println("\n\r🔎 Recipes under " + maxTime + " minutes:");
         for (RecipesManagement recipe : recipes) {
             if (recipe.getCookingTime() <= maxTime) {
                 recipe.displayRecipe();
@@ -118,7 +118,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         Scanner scanner = new Scanner(System.in);
         String ingredient = scanner.nextLine().toLowerCase();
 
-        System.out.println("\n Recipes containing " + ingredient + ":");
+        System.out.println("\n\r🔎 Recipes containing " + ingredient + ":");
         for (RecipesManagement recipe : recipes) {
             for (String ing : recipe.getIngredients()) {
                 if (ing.toLowerCase().contains(ingredient)) {
@@ -134,7 +134,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         Scanner scanner = new Scanner(System.in);
         String selectedMealType = scanner.nextLine();
 
-        System.out.println("\n Recipes under " + selectedMealType + " Meal Type:");
+        System.out.println("\n\r Recipes under " + selectedMealType + " Meal Type:");
         for (RecipesManagement recipe : recipes) {
             if (recipe.getMealType().equalsIgnoreCase(selectedMealType)) {
                 recipe.displayRecipe();
@@ -147,7 +147,7 @@ public class RecipesManagement extends Recipes implements Serializable {
         Scanner scanner = new Scanner(System.in);
         String selectedDifficulty = scanner.nextLine();
 
-        System.out.println("\n Recipes with " + selectedDifficulty + " Difficulty:");
+        System.out.println("\n\r Recipes with " + selectedDifficulty + " Difficulty:");
         for (RecipesManagement recipe : recipes) {
             if (recipe.getDifficultyLevel().equalsIgnoreCase(selectedDifficulty)) {
                 recipe.displayRecipe();
